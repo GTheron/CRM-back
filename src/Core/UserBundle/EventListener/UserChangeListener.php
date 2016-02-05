@@ -24,15 +24,9 @@ class UserChangeListener implements EventSubscriberInterface
      */
     private $userManager;
 
-    /**
-     * @var
-     */
-    protected $mailer;
-
-    public function __construct(UserManagerInterface $userManager, $mailer)
+    public function __construct(UserManagerInterface $userManager)
     {
         $this->userManager = $userManager;
-        $this->mailer = $mailer;
     }
 
     /**
@@ -58,8 +52,7 @@ class UserChangeListener implements EventSubscriberInterface
         return array(
             User::BEFORE_USER_VALIDATION => 'updateUser',
             User::BEFORE_USER_DELETED => 'deleteAccount',
-            User::USER_CREATED => 'userCreated',
-            User::USER_REQUESTED_NEW_PASSWORD => 'userRequestedNewPassword'
+            User::USER_CREATED => 'userCreated'
         );
     }
 
@@ -90,18 +83,5 @@ class UserChangeListener implements EventSubscriberInterface
         $resource->setEnabled(0);
         $resource->setLocked(1);
         $this->userManager->updateUser($resource);
-    }
-
-    public function userRequestedNewPassword(EventAssociatedWithUser $event)
-    {
-        $resource = $event->getResource();
-        $user = $event->getUser();
-
-        $parameters = array(
-            'name' => $user->getFirstName() . ' ' . $user->getLastName(),
-            'link' => '<a href="'.$resource.'">Réinitialiser mon mot de passe</a>',
-        );
-
-        $this->mailer->sendEmail(Email::TYPE_PASSWORDRESET, 'fr', $user->getEmail(), $parameters);
     }
 }

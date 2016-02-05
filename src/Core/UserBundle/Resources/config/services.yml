@@ -34,7 +34,6 @@ services:
             - { name: kernel.event_subscriber }
         arguments:
             - @core_user.user_manager
-            - @core_admin.email_sender
 
     core_user.notification_listener:
         class: Core\UserBundle\EventListener\NotificationListener
