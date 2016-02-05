@@ -1,0 +1,8 @@
+app_crm_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AppCrmBundle:Default:index }
+
+api_app_customer:
+    type: rest
+    prefix: /api/
+    resource: App\CrmBundle\Controller\CustomerController

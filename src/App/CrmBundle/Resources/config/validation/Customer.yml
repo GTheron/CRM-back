@@ -1,4 +1,4 @@
-AppBundle\Entity\Customer:
+App\CrmBundle\Entity\Customer:
     properties:
         firstName:
             - Type: string

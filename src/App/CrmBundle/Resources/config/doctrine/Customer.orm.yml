@@ -1,7 +1,7 @@
-AppBundle\Entity\Customer:
+App\CrmBundle\Entity\Customer:
     type: entity
     table: app_customer
-    repositoryClass: AppBundle\Entity\CustomerRepository
+    repositoryClass: App\CrmBundle\Repository\CustomerRepository
     fields:
         firstName:
             type: string
@@ -11,7 +11,9 @@ AppBundle\Entity\Customer:
             length: 255
         metAt:
             type: datetime
+            nullable: true
         status:
             type: string
             length: 255
+            nullable: true
     lifecycleCallbacks: {  }

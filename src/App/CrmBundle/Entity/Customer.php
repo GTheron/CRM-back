@@ -9,7 +9,7 @@
 * file that was distributed with this source code.
 */
 
-namespace AppBundle\Entity;
+namespace App\CrmBundle\Entity;
 
 use Core\RestBundle\Model\RichResource;
 
@@ -48,7 +48,7 @@ class Customer extends RichResource
 
     public function __construct()
     {
-
+        parent::__construct();
     }
 
     /**

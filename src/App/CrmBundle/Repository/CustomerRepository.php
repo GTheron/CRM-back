@@ -9,7 +9,8 @@
 * file that was distributed with this source code.
 */
 
-namespace AppBundle\Repository;
+namespace App\CrmBundle\Repository;
+
 use Doctrine\ORM\EntityRepository;
 
 /**
