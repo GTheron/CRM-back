@@ -1,0 +1,93 @@
+Core\UserBundle\Entity\User:
+    type: entity
+    table: core_user_user
+    repositoryClass: Core\UserBundle\Repository\UserRepository
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+           fields: email
+    fields:
+        email:
+            type: string
+            length: 255
+        emailCanonical:
+            type: string
+            length: 255
+        firstName:
+            type: string
+            length: 50
+        lastName:
+            type: string
+            length: 50
+        phone:
+            type: string
+            length: 20
+            nullable: true
+        nationality:
+            type: string
+            length: 30
+            nullable: true
+        roleLabel:
+            type: string
+            length: 30
+            nullable: true
+        locale:
+            type: string
+            length: 5
+        gender:
+            type: string
+            length: 5
+        searchesSince:
+            type: date
+            nullable: true
+        childrenCount:
+            type: integer
+        children:
+            type: array
+        pet:
+            type: boolean
+        password:
+            type: string
+            length: 255
+        salt:
+            type: string
+            length: 255
+        enabled:
+            type: boolean
+        expired:
+            type: boolean
+        locked:
+            type: boolean
+        credentialsExpired:
+            type: boolean
+        confirmationToken:
+            type: string
+            length: 255
+            nullable: true
+        passwordRequestedAt:
+            type: datetime
+            nullable: true
+        lastLogin:
+            type: datetime
+            nullable: true
+        roles:
+            type: array
+        phoneValidated:
+            type: boolean
+        phoneCode:
+            type: string
+            nullable: true
+        phoneRequestAt:
+            type: datetime
+            nullable: true
+    manyToMany:
+        groups:
+            targetEntity: Group
+            joinTable:
+                name: core_user_user_group
+                joinColumns:
+                    user_id:
+                        referencedColumnName: uid
+                inverseJoinColumns:
+                    group_id:
+                        referencedColumnName: uid
+    lifecycleCallbacks: {  }

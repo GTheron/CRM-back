@@ -1,0 +1,12 @@
+Core\UserBundle\Entity\Group:
+    exclusion_policy: all
+    properties:
+        name:
+            type: string
+        feature:
+            type: boolean
+            read_only: true
+        roles:
+            type: array
+        groups:
+            type: array

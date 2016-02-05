@@ -1,0 +1,11 @@
+Core\UserBundle\Entity\Notification:
+    exclusion_policy: all
+    properties:
+        datas:
+            type: array
+        text:
+            type: string
+        type:
+            type: string
+        seen:
+            type: boolean

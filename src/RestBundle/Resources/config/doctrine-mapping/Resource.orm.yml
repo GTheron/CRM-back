@@ -1,0 +1,6 @@
+Core\RestBundle\Model\Resource:
+    type: mappedSuperclass
+    id:
+        uid:
+            type: integer
+            generator: { strategy: AUTO }

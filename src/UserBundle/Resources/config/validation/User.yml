@@ -1,0 +1,61 @@
+Core\UserBundle\Entity\User:
+   # constraints:
+    #    - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
+    properties:
+        email:
+            - Email: { groups: [presignup] }
+            - NotBlank: { groups: [presignup] }
+        firstName:
+            - Type:  { type: string , groups: [presignup] }
+            - Length: { min: 2, max: 50, groups: [presignup] }
+            - NotBlank: { groups: [presignup] }
+        lastName:
+            - Type: { type: string , groups: [presignup] }
+            - Length: { min: 2, max: 50, groups: [presignup] }
+            - NotBlank: { groups: [presignup] }
+
+        phone:
+            - Type: { type: string , groups: [presignup] }
+            - Length: { min: 8, max: 20, groups: [presignup] }
+            - NotBlank: { groups: [presignup] }
+        nationality:
+            - Type: { type: string , groups: [physical] }
+            - Length: { min: 2, max: 30, groups: [physical] }
+            - NotBlank: { groups: [physical] }
+        roleLabel:
+            - Type: { type: string , groups: [prorole] }
+            - Length: { min: 3, max: 50, groups: [prorole] }
+            - NotBlank: { groups: [prorole] }
+
+        locale:
+            - Type: string
+            - Length:
+                min: 2
+                max: 5
+        gender:
+            - Type: string
+            - Length:
+                min: 1
+                max: 5
+        searchesSince:
+            - Date: ~
+        childrenCount:
+            - Type: integer
+            - Range:
+                min: 0
+        children:
+            - Type: array
+        pet:
+            - Type: boolean
+        plainPassword:
+            - Type: { type: string , groups: [presignup] }
+            - Length: { min: 5, max: 30, groups: [presignup] }
+            - NotBlank: { groups: [presignup] }
+        enabled:
+            - Type: boolean
+        locked:
+            - Type: boolean
+        phoneValidated:
+            - Type: boolean
+        phoneCode:
+            - Type: string

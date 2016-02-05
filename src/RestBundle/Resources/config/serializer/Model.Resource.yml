@@ -1,0 +1,6 @@
+Core\RestBundle\Model\Resource:
+    exclusion_policy: all
+    properties:
+        uid:
+            type: integer
+            read_only: true

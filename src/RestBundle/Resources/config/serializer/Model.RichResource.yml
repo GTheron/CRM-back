@@ -1,0 +1,15 @@
+Core\RestBundle\Model\RichResource:
+    exclusion_policy: all
+    properties:
+        deleted:
+            type: boolean
+            read_only: true
+        deletedAt:
+            type: DateTime
+            read_only: true
+        createdAt:
+            type: DateTime
+            read_only: true
+        updatedAt:
+            type: DateTime
+            read_only: true

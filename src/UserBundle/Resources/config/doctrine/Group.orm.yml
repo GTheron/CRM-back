@@ -1,0 +1,25 @@
+Core\UserBundle\Entity\Group:
+    type: entity
+    table: core_user_group
+    repositoryClass: Core\UserBundle\Repository\GroupRepository
+    fields:
+        name:
+            type: string
+            length: 255
+        feature:
+            type: boolean
+        roles:
+            type: array
+    manyToMany:
+        groups:
+            targetEntity: Core\UserBundle\Entity\Group
+            inversedBy: groups
+            joinTable:
+                name: core_user_group_group
+                joinColumns:
+                    group_id:
+                        referencedColumnName: uid
+                inverseJoinColumns:
+                    sub_group_id:
+                        referencedColumnName: uid
+    lifecycleCallbacks: {  }

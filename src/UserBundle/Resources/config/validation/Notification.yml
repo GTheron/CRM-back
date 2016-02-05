@@ -1,0 +1,11 @@
+Core\UserBundle\Entity\Notification:
+    properties:
+        datas:
+            - Type: array
+        text:
+            - Type: string
+        type:
+            - Type: string
+        seen:
+            - Type: boolean
+

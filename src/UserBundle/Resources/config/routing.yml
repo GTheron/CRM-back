@@ -1,0 +1,14 @@
+api_core_user_group:
+    type: rest
+    prefix: /api/
+    resource: Core\UserBundle\Controller\GroupController
+
+api_core_user_user:
+    type: rest
+    prefix: /api/
+    resource: Core\UserBundle\Controller\UserController
+
+api_core_user_notification:
+    type: rest
+    prefix: /api/
+    resource: Core\UserBundle\Controller\NotificationController

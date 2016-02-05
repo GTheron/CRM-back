@@ -1,0 +1,54 @@
+services:
+#    core_rest.example:
+#        class: Core\RestBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+################
+#ParamConverters
+################
+
+    core_rest.param_converter.resource:
+        class: Core\RestBundle\ParamConverter\ResourceConverter
+        tags:
+            - { name: request.param_converter, converter: core_rest.param_converter.resource }
+        arguments:
+            - @core_rest.resource_manager
+            - @jms_serializer.serializer
+            - @?doctrine
+
+    core_rest.param_converter.singleton:
+        class: Core\RestBundle\ParamConverter\SingletonResourceConverter
+        tags:
+            - { name: request.param_converter, converter: core_rest.param_converter.singleton }
+        arguments:
+            - @core_rest.resource_manager
+            - @jms_serializer.serializer
+            - @?doctrine
+
+    core_rest.initialized_object_constructor:
+        class: Core\RestBundle\ParamConverter\InitializedObjectConstructor
+        arguments:
+            - @jms_serializer.doctrine_object_constructor
+
+##########
+#Listeners
+##########
+
+    core_rest.listener.validation_exception:
+        class: Core\RestBundle\EventListener\ValidationExceptionListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
+        arguments:
+            - @jms_serializer.serializer
+
+
+#########
+#Services
+#########
+
+    core_rest.resource_manager:
+        class: Core\RestBundle\Service\ResourceManager
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @event_dispatcher
+            - @validator

@@ -1,0 +1,69 @@
+parameters:
+    host: %hostName%
+
+services:
+#    core_user.example:
+#        class: Core\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+#########
+#Security
+#########
+
+    core_user.authentication_handler:
+        class: Core\UserBundle\Security\AuthenticationHandler
+        arguments:
+            - @router
+            - @session
+
+##########
+#Listeners
+##########
+
+    core_user.resource_role_listener:
+        class: Core\UserBundle\EventListener\ResourceRoleListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            - @core_rest.resource_manager
+            - @security.authorization_checker
+
+    core_user.user_change_listener:
+        class: Core\UserBundle\EventListener\UserChangeListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            - @core_user.user_manager
+            - @core_admin.email_sender
+
+    core_user.notification_listener:
+        class: Core\UserBundle\EventListener\NotificationListener
+        tags:
+            - { name: kernel.event_subscriber }
+        arguments:
+            - @core_rest.resource_manager
+
+
+#########
+#Services
+#########
+
+    core_user.authorization_manager:
+        class: Core\UserBundle\Security\AuthorizationManager
+        arguments:
+            - @core_rest.resource_manager
+            - @security.access.decision_manager
+
+    core_user.user_manager:
+        class: Core\UserBundle\Service\UserManager
+        arguments:
+            - @core_rest.resource_manager
+            - @security.encoder_factory
+            - @router
+            - %host%
+            - @event_dispatcher
+
+    core_user.user_provider:
+        class: Core\UserBundle\Service\UserProvider
+        arguments:
+            - @core_rest.resource_manager

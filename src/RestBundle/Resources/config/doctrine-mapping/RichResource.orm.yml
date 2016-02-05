@@ -1,0 +1,13 @@
+Core\RestBundle\Model\RichResource:
+    type: mappedSuperclass
+    fields:
+        deleted:
+            type: boolean
+        deletedAt:
+            type: datetime
+            nullable: true
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+            nullable: true

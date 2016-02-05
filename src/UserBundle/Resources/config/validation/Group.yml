@@ -1,0 +1,7 @@
+Core\UserBundle\Entity\Group:
+    properties:
+        name:
+            - Type: string
+            - Length:
+                min: 3
+                max: 50

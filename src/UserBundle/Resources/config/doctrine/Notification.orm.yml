@@ -1,0 +1,25 @@
+Core\UserBundle\Entity\Notification:
+    type: entity
+    table: core_user_notification
+    repositoryClass: Core\UserBundle\Repository\NotificationRepository
+    fields:
+        datas:
+            type: array
+            nullable: false
+        text:
+            type: text
+            nullable: false
+        type:
+            type: string
+            length: 255
+            nullable: false
+        seen:
+            type: boolean
+    manyToOne:
+      user:
+        targetEntity: Core\UserBundle\Entity\User
+        joinColumn:
+          name: user_uid
+          referencedColumnName: uid
+        nullable: false
+    lifecycleCallbacks: {  }
