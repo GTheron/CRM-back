@@ -17,14 +17,6 @@ Core\UserBundle\Entity\User:
             type: string
         gender:
             type: string
-        searchesSince:
-            type: date
-        childrenCount:
-            type: integer
-        children:
-            type: array
-        pet:
-            type: boolean
         enabled:
             type: boolean
         locked:
@@ -41,5 +33,3 @@ Core\UserBundle\Entity\User:
             type: boolean
         phoneCode:
             type: string
-        professional:
-            read_only: true

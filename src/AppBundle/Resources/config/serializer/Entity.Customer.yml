@@ -1,0 +1,11 @@
+AppBundle\Entity\Customer:
+    exclusion_policy: all
+    properties:
+        firstName:
+            type: string
+        lastName:
+            type: string
+        metAt:
+            type: datetime
+        status:
+            type: string

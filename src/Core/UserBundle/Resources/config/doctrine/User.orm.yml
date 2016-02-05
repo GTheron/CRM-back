@@ -36,15 +36,6 @@ Core\UserBundle\Entity\User:
         gender:
             type: string
             length: 5
-        searchesSince:
-            type: date
-            nullable: true
-        childrenCount:
-            type: integer
-        children:
-            type: array
-        pet:
-            type: boolean
         password:
             type: string
             length: 255

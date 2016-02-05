@@ -3,9 +3,15 @@
 security:
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    encoders:
+        Core\UserBundle\Entity\User:
+            algorithm: sha512
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        main_user_provider:
+            entity:
+                class: CoreUserBundle:User
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -14,7 +20,18 @@ security:
             security: false
 
         main:
+            pattern: ^/
             anonymous: ~
+            http_basic: ~
+            provider: main_user_provider
+            form_login:
+                login_path: /login
+                check_path: /login_check
+                success_handler: core_user.authentication_handler
+                #username_parameter: Username
+                #password_parameter: Password
+            logout:
+                path:   /logout
             # activate different ways to authenticate
 
             # http_basic: ~

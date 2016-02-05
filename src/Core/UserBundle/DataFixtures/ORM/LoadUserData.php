@@ -28,12 +28,12 @@ class LoadUserData extends AbstractContainerAwareFixture implements FixtureInter
         $rm = $this->container->get('core_rest.resource_manager');
 
         //On récupère les groupes "utilisateurs"
-        $adminGroup = $this->getReference('admin-group');
-        $individualGroup = $this->getReference('individual-group');
-        $agencyGroup = $this->getReference('agency-group');
-        $builderGroup = $this->getReference('builder-group');
-        $developerGroup = $this->getReference('developer-group');
-        $instigatorGroup = $this->getReference('instigator-group');
+        //$adminGroup = $this->getReference('admin-group');
+        //$individualGroup = $this->getReference('individual-group');
+        //$agencyGroup = $this->getReference('agency-group');
+        //$builderGroup = $this->getReference('builder-group');
+        //$developerGroup = $this->getReference('developer-group');
+        //$instigatorGroup = $this->getReference('instigator-group');
 
         //On crée des nouveaux utilisateurs
 
@@ -51,15 +51,12 @@ class LoadUserData extends AbstractContainerAwareFixture implements FixtureInter
         $particulier->setPlainPassword("particulier");
 
         //On affecte les groupes aux utilisateurs
-        $userAdmin->addGroup($adminGroup);
-        $particulier->addGroup($individualGroup);
+        //$userAdmin->addGroup($adminGroup);
+        //$particulier->addGroup($individualGroup);
 
         //UserBundle
         $userAdmin->addRole('ROLE_NOTIFICATION_DELETE');
         $userAdmin->addRole('ROLE_NOTIFICATION_UPDATE');
-        $userAdmin->setChildrenCount(2);
-        $userAdmin->setChildren(array("age"=>15),0);
-        $userAdmin->setChildren(array("age"=>12),1);
 
         $rm->create($userAdmin);
 

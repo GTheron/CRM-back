@@ -1,0 +1,19 @@
+AppBundle\Entity\Customer:
+    properties:
+        firstName:
+            - Type: string
+            - Length:
+                min: 1
+                max: 50
+        lastName:
+            - Type: string
+            - Length:
+                min: 1
+                max: 50
+        metAt:
+            - DateTime: ~
+        status:
+            - Type: string
+            - Length:
+                min: 1
+                max: 50

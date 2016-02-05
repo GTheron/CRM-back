@@ -78,3 +78,18 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_rest:
+    routing_loader:
+        default_format: json
+    body_listener:
+        array_normalizer:
+            #service: fos_rest.normalizer.camel_keys
+            forms: true
+    #body_converter:
+    #    enabled: true
+    #    validate: true
+    #    validation_errors_argument: validationErrors
+    #param_fetcher_listener: true
+
+nelmio_api_doc: ~

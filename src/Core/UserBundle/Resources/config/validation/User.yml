@@ -37,16 +37,6 @@ Core\UserBundle\Entity\User:
             - Length:
                 min: 1
                 max: 5
-        searchesSince:
-            - Date: ~
-        childrenCount:
-            - Type: integer
-            - Range:
-                min: 0
-        children:
-            - Type: array
-        pet:
-            - Type: boolean
         plainPassword:
             - Type: { type: string , groups: [presignup] }
             - Length: { min: 5, max: 30, groups: [presignup] }

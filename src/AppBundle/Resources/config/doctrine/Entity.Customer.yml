@@ -1,0 +1,17 @@
+AppBundle\Entity\Customer:
+    type: entity
+    table: app_customer
+    repositoryClass: AppBundle\Entity\CustomerRepository
+    fields:
+        firstName:
+            type: string
+            length: 255
+        lastName:
+            type: string
+            length: 255
+        metAt:
+            type: datetime
+        status:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

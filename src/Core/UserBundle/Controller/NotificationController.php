@@ -60,7 +60,7 @@ class NotificationController extends ResourceController implements ClassResource
      * )
      *
      * @ParamConverter("notification", class="CoreUserBundle:Notification")
-     * @Rest\PUT("/notifications/{uid}")
+     * @Rest\Put("/notifications/{uid}")
      *
      * @param Notification $notification
      * @return \Symfony\Component\HttpFoundation\Response

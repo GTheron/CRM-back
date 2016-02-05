@@ -1,3 +1,18 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+core_user:
+    resource: "@CoreUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+core_rest:
+    resource: "@CoreRestBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
